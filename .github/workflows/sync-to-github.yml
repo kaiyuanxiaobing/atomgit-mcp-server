@@ -19,9 +19,7 @@ jobs:
           git config --global user.email 'kaiyuanxiaobing@foxmail.com'
         
       - name: Push to GitHub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_KEY }}
         run: |
-          git remote add github https://${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
+          git remote add origin https://${{ secrets.GIT_KEY }}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git branch -M master
-          git push -u github master
+          git push -u origin master
