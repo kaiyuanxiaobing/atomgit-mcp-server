@@ -139,7 +139,7 @@ mcp-server-atomgit 服务器提供了多种与 AtomGit 交互的工具，后续�
 3. 更改代码，并确保代码有良好的文档。
 4. 提交一个 pull request，并附上清晰的更改描述。
 
-有任何问题，请给我们提交issue，我们会及时查看反馈，并积极解决~
+有任何问题，请给我们提交[issue](https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server/issues)，我们会及时查看反馈，并积极解决~
 
 ### 许可：木兰宽松许可证
 [木兰宽松许可证](./license)
