@@ -19,33 +19,12 @@ jobs:
           git config --global user.email 'kaiyuanxiaobing@foxmail.com'
 
       - name: Add remote GitHub repository
-        run: git remote add github https://github.com/kaiyuanxiaobing/atomgit-mcp-server.git
-
-      - name: Pull from GitHub
-        env:
-          GITHUB_TOKEN: ${{ secrets.GIT_KEY }}
-        run: |
-          git remote set-url github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
-          git config pull.rebase false
-          git pull github main --allow-unrelated-histories
-          
-      - name: Resolve conflicts
-        run: |
-          git config --global pull.rebase false
-          # 统一使用传入版本覆盖所有文件
-          git checkout --theirs .
-          git add .
-          git commit -m "Resolved merge conflicts by accepting all incoming changes" || true
-          
-      - name: Log conflicts
-        if: failure()
-        run: |
-          echo "Merge conflict detected at $(date)" >> conflict.log
-          git diff --name-only --diff-filter=U >> conflict.log
-          
+        run: git remote add github https://github.com/kaiyuanxiaobing/atomgit-mcp-server.git |
+        
       - name: Push to GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_KEY }}
         run: |
           git remote set-url github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
-          git push github main
+          git branch -M master
+          git push -u origin master
