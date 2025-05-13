@@ -19,7 +19,7 @@ jobs:
           git config --global user.email 'kaiyuanxiaobing@foxmail.com'
 
       - name: Add remote GitHub repository
-        run: git remote add github https://github.com/kaiyuanxiaobing/atomgit-mcp-server.git |
+        run: git remote add github https://github.com/kaiyuanxiaobing/atomgit-mcp-server.git
         
       - name: Push to GitHub
         env:
