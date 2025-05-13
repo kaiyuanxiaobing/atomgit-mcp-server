@@ -24,4 +24,4 @@ jobs:
         run: |
           git remote add github https://${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git branch -M master
-          git push github master
+          git push -u github master
