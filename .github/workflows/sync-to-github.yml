@@ -26,4 +26,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GIT_KEY }}
         run: |
           git remote set-url github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
-          git push github main
+          git push github master
