@@ -31,21 +31,21 @@ jobs:
             echo "✅ Versions match: $PACKAGE_VERSION"
           fi
 
-  # publish:
-  #   runs-on: ubuntu-latest
-  #   permissions:
-  #     contents: read
-  #     packages: write # allow GITHUB_TOKEN to publish packages
-  #   steps:
-  #     - uses: actions/checkout@v4
-  #     - uses: actions/setup-node@v3
-  #       with:
-  #         node-version: "20"
-  #     - name: Install pnpm
-  #       run: npm install -g pnpm@latest
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write # allow GITHUB_TOKEN to publish packages
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
+      - name: Install pnpm
+        run: npm install -g pnpm@latest
 
-  #     - run: pnpm install --frozen-lockfile
-  #     - run: pnpm build
-  #     - uses: JS-DevTools/npm-publish@v3
-  #       with:
-  #         token: ${{ secrets.NPM_TOKEN }}
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - uses: JS-DevTools/npm-publish@v3
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
