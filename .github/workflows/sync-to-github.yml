@@ -27,7 +27,7 @@ jobs:
         run: |
           git remote set-url github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git config pull.rebase false
-          git pull github master
+          git pull github master --allow-unrelated-histories
           
       - name: Push to GitHub
         env:
