@@ -1,0 +1,51 @@
+name: Auto Deploy to NPM
+description: |
+  This workflow automatically builds and publishes JavaScript packages to NPM when a release is created.
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  check-version:
+    name: Check atomgit mcp server version consistency
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check version consistency
+        run: |
+          PACKAGE_VERSION=$(node -p "require('./package.json').version")
+          TS_VERSION=$(grep -o '".*"' ./common/version.ts | tr -d '"')
+
+          if [ "$PACKAGE_VERSION" != "$TS_VERSION" ]; then
+            echo "::error::Version mismatch detected!"
+            echo "::error::package.json version: $PACKAGE_VERSION"
+            echo "::error::version.ts version: $TS_VERSION"
+            exit 1
+          else
+            echo "✅ Versions match: $PACKAGE_VERSION"
+          fi
+
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   permissions:
+  #     contents: read
+  #     packages: write # allow GITHUB_TOKEN to publish packages
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: "20"
+  #     - name: Install pnpm
+  #       run: npm install -g pnpm@latest
+
+  #     - run: pnpm install --frozen-lockfile
+  #     - run: pnpm build
+  #     - uses: JS-DevTools/npm-publish@v3
+  #       with:
+  #         token: ${{ secrets.NPM_TOKEN }}

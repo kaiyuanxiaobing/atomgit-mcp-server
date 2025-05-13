@@ -1,0 +1,47 @@
+{
+  "name": "atomgit-mcp-server",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "MCP server for using AtomGit API",
+  "main": "index.js",
+  "bin": {
+    "atomgit-mcp-server": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc && shx chmod +x dist/*.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "AtomGit",
+    "MCP",
+    "mcp-server-atomgit",
+    "mcp-server",
+    "atomgit-mcp-server",
+    "API",
+    "server",
+    "typescript",
+    "node",
+    "universal-user-agent",
+    "node-fetch",
+    "zod",
+    "zod-to-json-schema"
+  ],
+  "author": "kaiyuanxiaobing",
+  "license": "MIT",
+  "packageManager": "pnpm@10.9.0",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.10.2",
+    "@types/node-fetch": "^2.6.12",
+    "node-fetch": "^3.3.2",
+    "universal-user-agent": "^7.0.2",
+    "zod": "^3.24.3",
+    "zod-to-json-schema": "^3.24.5"
+  },
+  "devDependencies": {
+    "@types/node": "^22.14.1",
+    "shx": "^0.4.0",
+    "typescript": "^5.8.3"
+  }
+}
