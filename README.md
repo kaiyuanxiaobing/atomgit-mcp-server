@@ -14,7 +14,7 @@ AtomGit MCP 服务器是专门为 AtomGit 开源协作平台的模型上下文(M
 
 #### 克隆仓库
 ``` bash
-git clone https://atomgit.com/kaiyuanxiaobing/mcp-server-atomgit.git
+git clone https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server.git
 
 cd mcp-server-atomgit
 ```
