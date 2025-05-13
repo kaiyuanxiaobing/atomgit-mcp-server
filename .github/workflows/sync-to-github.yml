@@ -22,6 +22,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GIT_KEY }}
         run: |
-          git remote add github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
+          git remote add github https://${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git branch -M master
           git push github master
