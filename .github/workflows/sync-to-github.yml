@@ -20,6 +20,6 @@ jobs:
         
       - name: Push to GitHub
         run: |
-          git remote add origin https://${{ secrets.GIT_KEY }}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
+          git remote add github https://${{ secrets.GIT_KEY }}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git branch -M master
-          git push -u origin master
+          git push -u github master
