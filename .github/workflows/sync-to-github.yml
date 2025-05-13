@@ -11,15 +11,12 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Git
         run: |
           git config --global user.name 'kaiyuanxiaobing'
           git config --global user.email 'kaiyuanxiaobing@foxmail.com'
-
-      - name: Add remote GitHub repository
-        run: git remote add github https://github.com/kaiyuanxiaobing/atomgit-mcp-server.git
         
       - name: Push to GitHub
         env:
@@ -27,4 +24,4 @@ jobs:
         run: |
           git remote set-url github https://x-access-token:${GITHUB_TOKEN}@github.com/kaiyuanxiaobing/atomgit-mcp-server.git
           git branch -M master
-          git push -u origin master
+          git push github master
