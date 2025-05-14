@@ -56,22 +56,20 @@ export async function createLabel(
   color: string,
   description?: string
 ) {
-  const data: { name: string; color: string; description?: string } = {
+  // ① 构造 URLSearchParams
+  const params = new URLSearchParams({
     name,
     color,
-  };
-
+  });
   if (description) {
-    data.description = description;
+    params.append('description', description);
   }
 
   return atomGitRequest(
     `https://api.atomgit.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/labels`,
     {
       method: "POST",
-      body: {
-        data
-      },
+      body: params.toString(),
     }
   );
 }
