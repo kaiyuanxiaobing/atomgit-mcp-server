@@ -56,20 +56,22 @@ export async function createLabel(
   color: string,
   description?: string
 ) {
-  const body: { name: string; color: string; description?: string } = {
+  const data: { name: string; color: string; description?: string } = {
     name,
     color,
   };
-  
+
   if (description) {
-    body.description = description;
+    data.description = description;
   }
-  
+
   return atomGitRequest(
     `https://api.atomgit.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/labels`,
     {
       method: "POST",
-      body,
+      body: {
+        data
+      },
     }
   );
 }
