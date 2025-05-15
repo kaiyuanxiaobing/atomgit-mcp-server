@@ -1,9 +1,17 @@
 # AtomGit MCP Server
+[![smithery badge](https://smithery.ai/badge/@kaiyuanxiaobing/atomgit-mcp-server)](https://smithery.ai/server/@kaiyuanxiaobing/atomgit-mcp-server)
 
 AtomGit MCP 服务器是专门为 AtomGit 开源协作平台的模型上下文(MCP) 服务的实现。提供了一系列方法，允许 AI 管理 AtomGit 开源协作平台的仓库、issues、pull requests、branch、label等。
 
-
 ## 安装（npx启动跳过该步骤）
+
+### 安装 via Smithery
+
+To install AtomGit MCP Server for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@kaiyuanxiaobing/atomgit-mcp-server):
+
+```bash
+npx -y @smithery/cli install @kaiyuanxiaobing/atomgit-mcp-server --client claude
+```
 
 ### 前提条件
 - nodejs v18.20.2 或者更高版本
@@ -94,7 +102,6 @@ NPX
   }
 }
 ```
-
 
 ### 可用工具
 
