@@ -149,11 +149,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         description: "Get details of a specific pull request comment",
         inputSchema: zodToJsonSchema(pull.GetPullRequestCommentSchema),
       },
-      {
-        name: "list_pull_request_comments",
-        description: "List comments on a pull request",
-        inputSchema: zodToJsonSchema(pull.ListPullRequestCommentsSchema),
-      },
+      // {
+      //   name: "list_pull_request_comments",
+      //   description: "List comments on a pull request",
+      //   inputSchema: zodToJsonSchema(pull.ListPullRequestCommentsSchema),
+      // },
       {
         name: "list_repository_branches",
         description: "List branches in a repository",
@@ -164,11 +164,11 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
         description: "Get details of a specific branch in a repository",
         inputSchema: zodToJsonSchema(branch.ListBranchDetailSchema),
       },
-      {
-        name: "create_repository_label",
-        description: "Create a new label in a repository",
-        inputSchema: zodToJsonSchema(label.CreateLabelSchema),
-      },
+      // {
+      //   name: "create_repository_label",
+      //   description: "Create a new label in a repository",
+      //   inputSchema: zodToJsonSchema(label.CreateLabelSchema),
+      // },
       {
         name: "get_repository_labels",
         description: "Get all labels in a repository",
@@ -407,13 +407,13 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case "list_pull_request_comments": {
-        const args = pull.ListPullRequestCommentsSchema.parse(request.params.arguments);
-        const result = await pull.listPullRequestComments(args.owner, args.repo, args.pull_number, args.page, args.per_page);
-        return {
-          content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
-        };
-      }
+      // case "list_pull_request_comments": {
+      //   const args = pull.ListPullRequestCommentsSchema.parse(request.params.arguments);
+      //   const result = await pull.listPullRequestComments(args.owner, args.repo, args.pull_number, args.page, args.per_page);
+      //   return {
+      //     content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      //   };
+      // }
 
       case "list_repository_branches": {
         const args = branch.ListBranchListSchema.parse(request.params.arguments);
@@ -431,15 +431,15 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
         };
       }
 
-      case "create_repository_label": {
-        const args = label.CreateLabelSchema.parse(request.params.arguments);
-        const { owner, repo, name, color, description } = args;
+      // case "create_repository_label": {
+      //   const args = label.CreateLabelSchema.parse(request.params.arguments);
+      //   const { owner, repo, name, color, description } = args;
 
-        const result = await label.createLabel(owner, repo, name, color, description);
-        return {
-          content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
-        };
-      }
+      //   const result = await label.createLabel(owner, repo, name, color, description);
+      //   return {
+      //     content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      //   };
+      // }
 
       case "get_repository_labels": {
         const args = label.GetLabelsSchema.parse(request.params.arguments);

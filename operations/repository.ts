@@ -8,22 +8,22 @@ import {
 
 
 export const getUserRepositorySchema = z.object({
-  owner: z.string().describe("Search query owner(see AtomGit search syntax)"),
-  repo: z.string().describe("Search query repo(see AtomGit search syntax)"),
+  owner: z.string().describe("Search query owner"),
+  repo: z.string().describe("Search query repo"),
 });
 
 export const getUserRepositoriesSchema = z.object({
-  username: z.string().describe("Search query username(see AtomGit search syntax)"),
+  username: z.string().describe("Search query username"),
   per_page: z.number().optional().describe("Page number for pagination (default: 1)"),
   page: z.number().optional().describe("Number of results per page (default: 10)"),
-  search: z.string().optional().describe("Search query content(see AtomGit search syntax)"),
+  search: z.string().optional().describe("Search query content"),
 });
 
 export const getOrgRepositoriesSchema = z.object({
-  orgPath: z.string().describe("Search query org name(see AtomGit search syntax)"),
+  orgPath: z.string().describe("Search query org name"),
   per_page: z.number().optional().describe("Page number for pagination (default: 1)"),
   page: z.number().optional().describe("Number of results per page (default: 10)"),
-  search: z.string().optional().describe("Search query content(see AtomGit search syntax)"),
+  search: z.string().optional().describe("Search query content"),
 });
 
 

@@ -120,10 +120,10 @@ mcp-server-atomgit 服务器提供了多种与 AtomGit 交互的工具，后续�
 | **create_pull_request_comment** | pull     | 为某个变更请求创建评论          |
 | **create_pull_request_reply**   | pull     | 回复某个变更请求的评论          |
 | **get_pull_request_comment**    | pull     | 获取某个变更请求评论的详细信息  |
-| **list_pull_request_comments**  | pull     | 列出某个变更请求的所有评论      |
+<!-- | **list_pull_request_comments**  | pull     | 列出某个变更请求的所有评论      | -->
 | **list_repository_branches**    | branch   | 获取分支列表                 |
 | **get_repository_branch_details** | branch  | 获取分支信息                 |
-| **create_repository_label**       | label   | 创建仓库标签                 |
+<!-- | **create_repository_label**       | label   | 创建仓库标签                 | -->
 | **get_repository_labels**         |  label  | 获取仓库所有标签              |
 | **create_issue_labels**           |  label  | 为issue添加标签              |
 | **get_issue_labels**              | label   | 获取issue的所有标签           |
