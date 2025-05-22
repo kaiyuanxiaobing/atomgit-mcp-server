@@ -1,53 +1,53 @@
 import { z } from "zod";
 import { atomGitRequest } from "../common/utils.js";
 
-// 标签相关的Schema定义
+// Label-related Schema definitions
 export const CreateLabelSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
-  name: z.string().describe("标签名称"),
-  color: z.string().describe("标签颜色。为6位的字符串，如: #ED4014"),
-  description: z.string().optional().describe("标签描述"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  name: z.string().describe("Label name"),
+  color: z.string().describe("Label color. A 6-character string, e.g: #ED4014"),
+  description: z.string().optional().describe("Label description"),
 });
 
 export const GetLabelsSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
 });
 
 export const CreateIssueLabelsSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
-  issue_number: z.number().describe("issue编号"),
-  labels: z.array(z.string()).describe("标签名称数组"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  issue_number: z.number().describe("Issue number"),
+  labels: z.array(z.string()).describe("Array of label names"),
 });
 
 export const GetIssueLabelsSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
-  issue_number: z.number().describe("issue的编号"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  issue_number: z.number().describe("Issue number"),
 });
 
 export const DeleteIssueLabelSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
-  issue_number: z.number().describe("issue编号"),
-  name: z.string().describe("标签名称"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  issue_number: z.number().describe("Issue number"),
+  name: z.string().describe("Label name"),
 });
 
 export const GetLabelByNameSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称（该名称不区分大小写）"),
-  name: z.string().describe("标签名称"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  name: z.string().describe("Label name"),
 });
 
 /**
- * 创建仓库标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
- * @param name - 标签名称
- * @param color - 标签颜色，为6位的字符串，如: #ED4014
- * @param description - 标签描述（可选）
+ * Create a repository label
+ * @param owner - Repository owner
+ * @param repo - Repository name
+ * @param name - Label name
+ * @param color - Label color, a 6-character string, e.g: #ED4014
+ * @param description - Label description (optional)
  */
 export async function createLabel(
   owner: string,
@@ -56,7 +56,7 @@ export async function createLabel(
   color: string,
   description?: string
 ) {
-  // ① 构造 URLSearchParams
+  // ① Create URLSearchParams
   const params = new URLSearchParams({
     name,
     color,
@@ -75,9 +75,9 @@ export async function createLabel(
 }
 
 /**
- * 获取仓库所有标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
+ * Get all labels for a repository
+ * @param owner - Repository owner
+ * @param repo - Repository name
  */
 export async function getLabels(
   owner: string,
@@ -92,11 +92,11 @@ export async function getLabels(
 }
 
 /**
- * 创建Issue标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
- * @param issue_number - issue编号
- * @param labels - 标签名称数组
+ * Create issue labels
+ * @param owner - Repository owner
+ * @param repo - Repository name
+ * @param issue_number - Issue number
+ * @param labels - Array of label names
  */
 export async function createIssueLabels(
   owner: string,
@@ -114,10 +114,10 @@ export async function createIssueLabels(
 }
 
 /**
- * 获取issue的所有标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
- * @param issue_number - issue的编号
+ * Get all labels for an issue
+ * @param owner - Repository owner
+ * @param repo - Repository name
+ * @param issue_number - Issue number
  */
 export async function getIssueLabels(
   owner: string,
@@ -133,11 +133,11 @@ export async function getIssueLabels(
 }
 
 /**
- * 删除Issue标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
- * @param issue_number - issue编号
- * @param name - 标签名称
+ * Delete issue label
+ * @param owner - Repository owner
+ * @param repo - Repository name
+ * @param issue_number - Issue number
+ * @param name - Label name
  */
 export async function deleteIssueLabel(
   owner: string,
@@ -154,10 +154,10 @@ export async function deleteIssueLabel(
 }
 
 /**
- * 根据标签名称获取单个标签
- * @param owner - 代码仓库的所有者
- * @param repo - 代码仓库名称
- * @param name - 标签名称
+ * Get a single label by name
+ * @param owner - Repository owner
+ * @param repo - Repository name
+ * @param name - Label name
  */
 export async function getLabelByName(
   owner: string,

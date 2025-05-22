@@ -27,7 +27,7 @@ export const getOrgRepositoriesSchema = z.object({
 });
 
 
-// 获取个人账户下代码库信息
+// Get repository information under personal account
 export async function getUserRepository(
   owner: string = '',
   repo: string = ''
@@ -39,7 +39,7 @@ export async function getUserRepository(
   return AtomGitGetUserRepositorySchema.parse(response);
 }
 
-// 获取个人账户下代码库信息
+// Get repository information under personal account
 export async function getUserRepositories(
   username: string,
   per_page: number = 10,
@@ -62,7 +62,7 @@ export async function getUserRepositories(
 }
 
 
-// 获取组织下代码库信息
+// Get repository information under organization
 export async function getOrgRepositories(
   orgPath: string,
   per_page: number = 10,

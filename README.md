@@ -1,5 +1,7 @@
 # AtomGit MCP Server
 
+[English](./README_EN.md) | [中文](./README.md)
+
 AtomGit MCP 服务器是专门为 AtomGit 开源协作平台的模型上下文(MCP) 服务的实现。提供了一系列方法，允许 AI 管理 AtomGit 开源协作平台的仓库、issues、pull requests、branch、label等。
 
 
@@ -132,10 +134,11 @@ mcp-server-atomgit 服务器提供了多种与 AtomGit 交互的工具，后续�
 
 我们欢迎热爱开源的开发者们的贡献！如果您想为这个项目做出贡献，请按照以下指南操作：
 
-1. Fork 此仓库。
-2. 为feature 或 bug 修复创建一个新分支。
-3. 更改代码，并确保代码有良好的文档。
-4. 提交一个 pull request，并附上清晰的更改描述。
+1. 访问仓库[https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server](https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server)
+2. Fork 此[仓库](https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server)
+3. 为 feature 或 bug 修复创建一个新分支。
+4. 更改代码，并确保代码有良好的文档。
+5. 提交一个 pull request，并附上清晰的更改描述。
 
 有任何问题，请给我们提交[issue](https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server/issues)，我们会及时查看反馈，并积极解决~
 

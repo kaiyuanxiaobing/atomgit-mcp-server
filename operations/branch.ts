@@ -2,16 +2,16 @@ import { z } from "zod";
 import { atomGitRequest } from "../common/utils.js";
 
 export const ListBranchListSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称。该名称不区分大小写。"),
-  per_page: z.number().describe("分页结果数").optional(),
-  page: z.number().describe("分页页码").optional(),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  per_page: z.number().describe("Number of results per page").optional(),
+  page: z.number().describe("Page number").optional(),
 });
 
 export const ListBranchDetailSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（username）'。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库名称。该名称不区分大小写。"),
-  branch: z.string().describe("分支名称，不能包含通配符。"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  branch: z.string().describe("Branch name, cannot contain wildcards."),
 });
 
 /**

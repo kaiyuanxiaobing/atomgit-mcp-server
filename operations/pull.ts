@@ -6,11 +6,11 @@ export const CreatePullRequestSchema = z.object({
   owner: z.string(),
   repo: z.string(),
   body: z.object({
-    title: z.string(), // 变更请求标题
-    body: z.string(),  // 变更请求描述
-    head: z.string(),  // 来源分支
-    base: z.string(),  // 目标分支
-    draft: z.boolean().default(false), // 草稿状态
+    title: z.string(), // Pull request title
+    body: z.string(),  // Pull request description
+    head: z.string(),  // Source branch
+    base: z.string(),  // Target branch
+    draft: z.boolean().default(false), // Draft status
   }),
 });
 

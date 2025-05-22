@@ -2,74 +2,74 @@ import { z } from "zod";
 import { atomGitRequest } from "../common/utils.js";
 
 export const CreateIssueOptionsSchema = z.object({
-  title: z.string().describe("issue 标题"),
-  body: z.string().describe("issue 内容（使用MD格式编写内容）"),
+  title: z.string().describe("Issue title"),
+  body: z.string().describe("Issue content (in Markdown format)"),
   assignees: z.array(z.string()).optional(),
   milestone: z.number().optional(),
   labels: z.array(z.string()).optional(),
 });
 
 export const CreateIssueSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（owner）’。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库的名称。该名称不区分大小写。"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username (owner)'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
   ...CreateIssueOptionsSchema.shape,
 });
 
 
 export const AssignIssueSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  issue_number: z.number().describe("issue 的编号"),
-  assignee: z.string().describe("要分配的负责人列表"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  issue_number: z.number().describe("Issue number"),
+  assignee: z.string().describe("List of assignees to be assigned"),
 });
 
 export const CreateIssueCommentSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者，一般称之为'用户名（owner）’。该名称不区分大小写。"),
-  repo: z.string().describe("代码仓库的名称。该名称不区分大小写。"),
-  issue_number: z.number().describe("issue 的编号"),
-  body: z.string().describe("issue 评论内容（使用MD格式编写内容）"),
+  owner: z.string().describe("Repository owner, typically referred to as 'username (owner)'. Case-insensitive."),
+  repo: z.string().describe("Repository name. Case-insensitive."),
+  issue_number: z.number().describe("Issue number"),
+  body: z.string().describe("Issue comment content (in Markdown format)"),
 });
 
 
 export const DeleteIssueCommentSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  comment_id: z.number().describe("评论的ID"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  comment_id: z.number().describe("Comment ID"),
 });
 
 export const GetIssueCommentSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  comment_id: z.number().describe("评论的ID"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  comment_id: z.number().describe("Comment ID"),
 });
 
 export const ListIssueCommentsSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  issue_number: z.number().describe("issue 的编号"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  issue_number: z.number().describe("Issue number"),
 });
 
 export const GetIssueSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  issue_number: z.number().describe("issue 的编号"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  issue_number: z.number().describe("Issue number"),
 });
 
 export const ListAssigneesSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
 });
 
 export const CheckAssigneeSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
-  assignee: z.string().describe("被检查的用户名"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
+  assignee: z.string().describe("Username to be checked"),
 });
 
 
 export const ListIssuesSchema = z.object({
-  owner: z.string().describe("代码仓库的所有者"),
-  repo: z.string().describe("代码仓库的名称"),
+  owner: z.string().describe("Repository owner"),
+  repo: z.string().describe("Repository name"),
 });
 
 
