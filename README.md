@@ -5,14 +5,14 @@
 
 AtomGit MCP 服务器是专门为 AtomGit 开源协作平台的模型上下文(MCP) 服务的实现。提供了一系列方法，允许 AI 管理 AtomGit 开源协作平台的仓库、issues、pull requests、branch、label等。
 
-## 安装（npx启动跳过该步骤）
+## 安装使用
 
-### 前提条件
+### 从源代码构建
+
+#### 前提条件（npx启动跳过该步骤）
 - nodejs v18.20.2 或者更高版本
 - pnpm 10.9.0
 - 拥有 AtomGit 账户的访问令牌，[获取方式](https://docs.atomgit.com/user/pats)
-
-### 从源代码构建
 
 #### 克隆仓库
 ``` bash
@@ -30,11 +30,7 @@ pnpm build
 ```bash
 pwd
 ```
-
-### MCP Hosts配置
-
-#### claude 
-##### 可执行文件启动
+#### claude 可执行文件启动
 stdio mode:
 ```json
 {
@@ -50,6 +46,9 @@ stdio mode:
 }
 ```
 
+### MCP Hosts配置
+
+#### claude 
 ##### npx 启动
 ```json
 {
@@ -141,5 +140,5 @@ mcp-server-atomgit 服务器提供了多种与 AtomGit 交互的工具，后续�
 
 有任何问题，请给我们提交[issue](https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server/issues)，我们会及时查看反馈，并积极解决~
 
-### 许可：木兰宽松许可证
-[木兰宽松许可证](./license)
+### 木兰宽松许可证, 第2版
+[木兰宽松许可证, 第2版](./license)
