@@ -74,10 +74,10 @@ function formatAtomGitError(error: AtomGitError): string {
 server.setRequestHandler(ListToolsRequestSchema, async () => {
   return {
     tools: [
-      {
-        name: "get_user_Info",
-        description: "Get AtomGit user information for subsequent operations",
-      },
+      // {
+      //   name: "get_user_Info",
+      //   description: "Get AtomGit user information for subsequent operations",
+      // },
       {
         name: "get_user_repository",
         description: "Search for AtomGit user repository",
@@ -211,12 +211,12 @@ server.setRequestHandler(CallToolRequestSchema, async (request) => {
 
     switch (request.params.name) {
 
-      case "get_user_Info": {
-        const result = await user.getUserInfo();
-        return {
-          content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
-        };
-      }
+      // case "get_user_Info": {
+      //   const result = await user.getUserInfo();
+      //   return {
+      //     content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      //   };
+      // }
       case "get_user_repository": {
         const args = repository.getUserRepositorySchema.parse(request.params.arguments);
         const results = await repository.getUserRepository(
