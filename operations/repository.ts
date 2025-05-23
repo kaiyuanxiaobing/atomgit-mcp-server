@@ -2,8 +2,8 @@ import { z } from "zod";
 import { atomGitRequest } from "../common/utils.js";
 import {
   AtomGitGetUserRepositorySchema,
-  AtomGitGetUserRepositoriesSchema,
-  AtomGitGetOrgRepositoriesSchema,
+  // AtomGitGetUserRepositoriesSchema,
+  // AtomGitGetOrgRepositoriesSchema,
 } from "../common/types.js";
 
 
@@ -58,7 +58,7 @@ export async function getUserRepositories(
     url += `?${queryString}`;
   }
   const response = await atomGitRequest(url.toString());
-  return AtomGitGetUserRepositoriesSchema.parse(response);
+  return response;
 }
 
 
@@ -81,5 +81,5 @@ export async function getOrgRepositories(
     url += `?${queryString}`;
   }
   const response = await atomGitRequest(url.toString());
-  return AtomGitGetOrgRepositoriesSchema.parse(response);
+  return response;
 }
