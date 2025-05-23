@@ -39,7 +39,7 @@
     "url": "https://atomgit.com/kaiyuanxiaobing"
   },
   "bugs": "https://atomgit.com/atomgit-open-source-ecosystem/atomgit-mcp-server/issues",
-  "license": "MIT",
+  "license": "MulanPSL-2.0",
   "packageManager": "pnpm@10.9.0",
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.11.2",
