@@ -142,3 +142,4 @@ mcp-server-atomgit 服务器提供了多种与 AtomGit 交互的工具，后续�
 
 ### 木兰宽松许可证, 第2版
 [木兰宽松许可证, 第2版](./license)
+
