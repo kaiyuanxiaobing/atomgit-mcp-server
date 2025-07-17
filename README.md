@@ -1,3 +1,5 @@
+[![MseeP.ai Security Assessment Badge](https://mseep.net/pr/kaiyuanxiaobing-atomgit-mcp-server-badge.png)](https://mseep.ai/app/kaiyuanxiaobing-atomgit-mcp-server)
+
 # AtomGit MCP Server
 [![smithery badge](https://smithery.ai/badge/@kaiyuanxiaobing/atomgit-mcp-server)](https://smithery.ai/server/@kaiyuanxiaobing/atomgit-mcp-server)
 
